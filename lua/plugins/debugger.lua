@@ -1,24 +1,52 @@
 return {
 	{
-		"jay-babu/mason-nvim-dap.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"mfussenegger/nvim-dap",
-		},
-		opts = {
-			handlers = {},
-		},
-		config = function()
-			require("mason-nvim-dap").setup({
-				ensure_installed = { "codelldb" },
-			})
-		end,
-	},
-	{
 		"mfussenegger/nvim-dap",
+		keys = {
+			{
+				"<leader>db",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+			},
+			{
+				"<leader>dB",
+				function()
+					require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+				end,
+			},
+			{
+				"<leader>dc",
+				function()
+					require("dap").clear_breakpoints()
+				end,
+			},
+			{
+				"<leader>dr",
+				function()
+					require("dap").continue()
+				end,
+			},
+			{
+				"<leader>do",
+				function()
+					require("dap").step_over()
+				end,
+			},
+			{
+				"<leader>di",
+				function()
+					require("dap").step_into()
+				end,
+			},
+			{
+				"<leader>dO",
+				function()
+					require("dap").step_out()
+				end,
+			},
+		},
 		config = function()
 			local dap = require("dap")
-
 			dap.adapters.codelldb = {
 				type = "executable",
 				command = "C:/Users/camer/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb.exe",
@@ -41,31 +69,30 @@ return {
 					end,
 					cwd = "${workspaceFolder}",
 					runInTerminal = false,
-
-					-- Add this to tell nvim-dap to ignore the exit code
 					ignore_exit_codes = { 1 },
 				},
 			}
 
 			dap.set_log_level("DEBUG")
-
-			-- Breakpoints
-			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
-			vim.keymap.set("n", "<leader>dB", function()
-				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-			end)
-			vim.keymap.set("n", "<leader>dc", dap.clear_breakpoints)
-
-			-- Debugging controls
-			vim.keymap.set("n", "<leader>dr", dap.continue) -- Start/Continue debugging
-			vim.keymap.set("n", "<leader>do", dap.step_over) -- Step over
-			vim.keymap.set("n", "<leader>di", dap.step_into) -- Step into
-			vim.keymap.set("n", "<leader>dO", dap.step_out) -- Step out
 		end,
 	},
+
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+		lazy = true,
+		config = function()
+			require("mason-nvim-dap").setup({
+				ensure_installed = { "codelldb" },
+				handlers = {},
+			})
+		end,
+	},
+
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+		lazy = true,
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
 			dapui.setup({
