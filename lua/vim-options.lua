@@ -42,7 +42,7 @@ vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", {})
 
 --Make a new line without entering insert mode
 vim.keymap.set("n", "<Enter>", "o<Esc>", {})
-
+vim.keymap.set("n", "<S-Enter>", "O<Esc>", {})
 
 --Limit size of completion menu
 vim.opt.pumheight = 10
