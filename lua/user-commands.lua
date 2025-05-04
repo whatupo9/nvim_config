@@ -2,6 +2,7 @@
 vim.api.nvim_create_user_command("W", function()
 	vim.cmd("w")
 end, {})
+
 --Sets current directory to config folder
 vim.api.nvim_create_user_command("Config", function()
 	vim.cmd("cd C:\\Users\\camer\\AppData\\Local\\nvim")
