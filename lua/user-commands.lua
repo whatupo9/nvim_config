@@ -62,5 +62,41 @@ vim.api.nvim_create_user_command("SetSource", function()
 		file_handle:write(line .. "\n")
 	end
 	file_handle:close()
-
 end, {})
+
+function transBg()
+	local highlight_groups = {
+		"Normal",
+		"NormalNC",
+		"StatusLine",
+		"StatusLineNC",
+		"VertSplit",
+		"Folded",
+		"FoldColumn",
+		"Comment",
+		"Pmenu",
+		"PmenuSel",
+		"PmenuSbar",
+		"PmenuThumb",
+		"Search",
+		"IncSearch",
+		"MatchParen",
+		"WarningMsg",
+		"ErrorMsg",
+		"MoreMsg",
+		"ModeMsg",
+		"Question",
+		"WildMenu",
+		"Terminal",
+		"StatusLineTerm",
+		"StatusLineNC",
+		"EndOfBuffer",
+		"LineNr",
+		"CursorLineNr",
+		"NoiceCmdlinePopup",
+	}
+
+	for _, group in ipairs(highlight_groups) do
+		vim.api.nvim_set_hl(0, group, { bg = "none" }) -- Set all backgrounds to transparent
+	end
+end
