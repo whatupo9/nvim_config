@@ -43,9 +43,6 @@ vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", {})
 --Make a new line without entering insert mode
 vim.keymap.set("n", "<Enter>", "o<Esc>", {})
 
---Add hover functionality for debugging
-vim.keymap.set("n", "<leader>K", "<Plug>VimspectorBalloonEval", {})
-vim.keymap.set("v", "<leader>k", "<Plug>VimspectorBalloonEval", {})
 
 --Limit size of completion menu
 vim.opt.pumheight = 10
