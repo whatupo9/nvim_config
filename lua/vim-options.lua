@@ -46,6 +46,7 @@ vim.keymap.set("n", "<Enter>", "o<Esc>", {})
 
 --Limit size of completion menu
 vim.opt.pumheight = 10
+vim.o.cmdheight = 0
 
 -- Set fold method to manual and enable fold column
 vim.opt.foldmethod = "manual"
