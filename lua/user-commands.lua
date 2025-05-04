@@ -15,8 +15,8 @@ end, {})
 --Sets the curret open file to the source file for cmake
 vim.api.nvim_create_user_command("SetSource", function()
 	-- Get the currently open file's relative path
-	local file = vim.fn.expand('%:p'):gsub('\\', '/')   -- Absolute path of current file
-	local cwd = vim.fn.getcwd()                         -- Get current working directory
+	local file = vim.fn.expand("%:p"):gsub("\\", "/") -- Absolute path of current file
+	local cwd = vim.fn.getcwd() -- Get current working directory
 
 	-- Find CMakeLists.txt in the project root
 	local project_root = cwd
