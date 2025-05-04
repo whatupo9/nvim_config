@@ -44,6 +44,10 @@ vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", {})
 vim.keymap.set("n", "<Enter>", "o<Esc>", {})
 vim.keymap.set("n", "<S-Enter>", "O<Esc>", {})
 
+--Make vertical navigation better
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {})
+
 --Limit size of completion menu
 vim.opt.pumheight = 10
 
