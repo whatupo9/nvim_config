@@ -101,3 +101,23 @@ function transBg()
 		vim.api.nvim_set_hl(0, group, { bg = "none" }) -- Set all backgrounds to transparent
 	end
 end
+
+-- Automatically save folds
+vim.api.nvim_create_autocmd("BufWinLeave", {
+	pattern = "*",
+	callback = function()
+		if vim.fn.bufname() ~= "" then
+			vim.cmd("mkview")
+		end
+	end,
+})
+
+-- Automatically recover folds
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = "*",
+	callback = function()
+		if vim.fn.bufname() ~= "" then
+			vim.cmd("silent! loadview")
+		end
+	end,
+})

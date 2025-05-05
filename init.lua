@@ -12,8 +12,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("vim-options") --Load nvim settings
-require("user-commands") --Define any custom user commands
-require("lazy").setup("plugins") --Initialize Lazy
+require("set")
+require("remap")
+require("user-commands")
+require("lazy").setup("plugins")
 
 transBg()
