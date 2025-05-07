@@ -79,7 +79,6 @@ function transBg()
 		"PmenuSel",
 		"PmenuSbar",
 		"PmenuThumb",
-		"Search",
 		"IncSearch",
 		"MatchParen",
 		"WarningMsg",
