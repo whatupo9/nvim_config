@@ -44,6 +44,12 @@ return {
 					require("dap").step_out()
 				end,
 			},
+			{
+				"<leader>dX",
+				function()
+					require("dap").terminate()
+				end,
+			},
 		},
 		config = function()
 			local dap = require("dap")
@@ -76,7 +82,6 @@ return {
 			dap.set_log_level("DEBUG")
 		end,
 	},
-
 	{
 		"jay-babu/mason-nvim-dap.nvim",
 		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
@@ -88,7 +93,6 @@ return {
 			})
 		end,
 	},
-
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
