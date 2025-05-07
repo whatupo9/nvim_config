@@ -29,7 +29,7 @@ return {
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<C-e>"] = cmp.mapping.abort(),
-                    ["<C-f>"] = function()
+                    ["<C-Tab>"] = function()
                         cmp.confirm({ select = true })
                     end,
                 }),
